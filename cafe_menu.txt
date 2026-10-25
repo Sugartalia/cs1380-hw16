@@ -1,0 +1,69 @@
+cafe_menu.txt - HW16
+Natalia
+
+PART A QUESTIONS
+
+1. Why does p + 1 add 4 bytes for an int *? What about a char *?
+   Pointer math moves by the size of the type. An int is usually 4 bytes,
+   so p + 1 moves 4 bytes. A char is 1 byte, so a char * moves 1 byte.
+
+2. What does end - start mean for two pointers in the same int array?
+   It tells me how many elements are between the pointers, not how many
+   bytes. For example, &prices[4] - &prices[0] is 4.
+
+3. Why is *(prices + 5) undefined behavior for an array of length 5?
+   The valid indexes are 0 through 4. prices + 5 is past the end of the
+   array. The pointer value itself is okay to use as a loop limit for
+   comparing, but reading from it is not safe even if it compiles.
+
+PART B HAND TRACE
+
+int arr[] = {10, 20, 30, 40, 50};
+int *p = arr + 2;
+
+*p            = 30
+*(p + 1)      = 40
+*(p - 1)      = 20
+(arr + 4) - p = 2
+
+PART B PROGRAM OUTPUT
+
+menu: 250 350 450 199 500
+price_at 2 = 450
+price_at 4 = 500
+max = 500
+addr[0]=0x7fff23f48010 addr[1]=0x7fff23f48014
+gap in bytes = 4 (sizeof(int) = 4)
+items 0..4 = 4
+prices over 300 = 3
+reversed: 500 199 450 350 250
+drink_length("latte") = 5
+drink_length(NULL) = 0
+
+The gap between the two addresses is 4 bytes, which matches sizeof(int).
+
+PART B QUESTIONS
+
+1. How does drink_length know when to stop?
+   A C string ends with '\0'. The pointer moves one character at a time
+   until it reaches '\0'. Then p - name gives the length.
+
+2. When is prices[i] clearer, and when is p++ better?
+   prices[i] is clearer when I need a specific index. A p++ walk is useful
+   when I want to go through every item in order.
+
+PART C GIT
+
+$ git status
+<PASTE YOUR REAL git status OUTPUT HERE>
+
+$ git log --oneline
+<PASTE YOUR REAL git log --oneline OUTPUT HERE>
+
+1. Why is a one-line hand trace useful before using the debugger?
+   It helps me figure out what value I should get. Then I can compare that
+   with the program and see where something went wrong.
+
+2. Why push to the remote and also upload hw16.zip to Canvas?
+   Pushing saves my work and commit history online. The Canvas zip is the
+   copy I turn in for the assignment.
