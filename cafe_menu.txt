@@ -55,10 +55,14 @@ PART B QUESTIONS
 PART C GIT
 
 $ git status
-<PASTE YOUR REAL git status OUTPUT HERE>
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
 
 $ git log --oneline
-<PASTE YOUR REAL git log --oneline OUTPUT HERE>
+9eb63d8 Add writeup and AI usage log
+039a17f Add menu pointer functions and demo
 
 1. Why is a one-line hand trace useful before using the debugger?
    It helps me figure out what value I should get. Then I can compare that
